@@ -20,7 +20,7 @@ class Definition {
 class Word {
     constructor(word) {
         this.word = word;
-        this.definitions = [];
+        this.definitions = []; // Here is an Array to hold Definitions
     }
 
     addDefinition(definition) {
@@ -37,12 +37,14 @@ class Word {
 };
 //
 
+// Class to hold the Menu
 class VocabMenu {
     constructor() {
-        this.words = [];
+        this.words = [];  // here is an Array to hold the Vocabulary Terms
         this.selectedWord = null;
     }
 
+    // Start method allows the menu to run
     start() {
         let selection = this.showMainMenuOptions();
         while (selection!= 0) {
@@ -67,6 +69,8 @@ class VocabMenu {
         alert('Thanks for Reading! Goodbye!');
     }
 
+
+    // methods to run the switch statement above, are below:
     showMainMenuOptions() {
         return prompt (`
             0) Exit the Vocabulary Menu
@@ -100,6 +104,7 @@ class VocabMenu {
         this.words.push(new Word(word));
     }
 
+    // This method digs deeper into the definitions of the vocabulary terms
     viewWord() {
         let i = prompt('Enter the index of the Vocabulary Term you want to see:');
         if (i > -1 && i < this.words.length) {
@@ -140,5 +145,6 @@ class VocabMenu {
     }
 };
 
+// This is the Entry Point of the program
 let vocabMenu = new VocabMenu();
 vocabMenu.start();
